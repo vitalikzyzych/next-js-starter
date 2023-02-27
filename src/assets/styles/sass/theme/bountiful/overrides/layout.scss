@@ -1,0 +1,53 @@
+body {
+  background-color: $bgColor;
+}
+
+.layout-sidebar {
+  --menuitem-text-color: $bcsPrimeryTextColor;
+  --menuitem-icon-color: $bcsPrimeryTextColor;
+}
+
+.layout-sidebar {
+  box-shadow: none;
+  border-right: 1px solid $sidebarBorderColor;
+  background: $bgColor;
+  width: 18rem;
+  .layout-menu {
+    margin: 0 1.5rem;
+    ul {
+      li {
+        margin: 0.5rem 0;
+        a {
+          padding: 0.75rem;
+          &.active-route{
+            background-color: $bgHoverColor;
+            border-radius: 1rem;
+            font-weight: 500;
+            color: $bcsPrimaryDarkenTextColor;
+          }
+          &:hover {
+            background-color: $bgHoverColor;
+            border-radius: 1rem;
+            color: $bcsPrimaryDarkenTextColor;
+            }
+        }
+    }
+    }
+  }
+}
+
+
+@media screen and (min-width: $breakpoint) {
+  .layout-container {
+      &.layout-static {
+          .layout-sidebar {
+              transition: transform var(--transition-duration);
+          }
+
+          .layout-content-wrapper {
+              margin-left: 18rem;
+              transition: margin-left var(--transition-duration);
+          }
+      }
+    }
+  }

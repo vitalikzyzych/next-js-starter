@@ -1,0 +1,57 @@
+.open {
+  background: #38e040;
+}
+
+.draft {
+  background: #bcbcbc;
+}
+
+.pending {
+  background: #ffb67b;
+}
+
+.archived {
+  background: #fb5353;
+}
+
+.topbar-search .p-inputtext {
+  padding: 0.333rem 4rem 0.333rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.topbar-dropdown .p-dropdown {
+  padding: 0.333rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.topbar-dropdown .p-inputtext {
+  font-size: 0.875rem;
+  padding: 0;
+}
+
+.job-item-card {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+}
+
+.job-item {
+  margin-bottom: 12px;
+  &.card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.dates-content .card {
+  background: rgba(34, 4, 54, 0.04);
+  padding: 0.43rem 0.625rem;
+  border: none;
+}
+
+.jobstatus {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-right: 4px;
+}

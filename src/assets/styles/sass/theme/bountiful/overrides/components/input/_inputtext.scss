@@ -1,0 +1,38 @@
+.p-inputtext {
+  font-family: $fontFamily;
+  font-size: $inputTextFontSize;
+  color: $inputTextColor;
+  background: $inputBg;
+  padding: $inputPadding;
+  border: $inputBorder;
+  transition: $formElementTransition;
+  appearance: none;
+  border-radius: $inputBorderRadius;
+
+  &:enabled:hover {
+    border-color: $inputHoverBorderColor;
+  }
+
+  &:enabled:focus {
+    @include focused-input();
+  }
+
+  &.p-invalid.p-component {
+    @include invalid-input();
+  }
+
+  &.p-inputtext-sm {
+    @include scaledFontSize($inputTextFontSize, $scaleSM);
+    @include scaledPadding($inputPadding, $scaleSM);
+  }
+
+  &.p-inputtext-lg {
+    @include scaledFontSize($inputTextFontSize, $scaleLG);
+    @include scaledPadding($inputPadding, $scaleLG);
+  }
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background: $inputBg;
+  color: $inputTextColor;
+}

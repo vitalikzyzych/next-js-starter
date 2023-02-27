@@ -1,0 +1,25 @@
+$bcsPrimaryTextColor: #604a6e;
+$bcsPrimaryDarkenTextColor: #220436;
+
+$buttonBg: #d6ff71;
+$buttonHoverBg: darken($buttonBg, 10%);
+$buttonTextHoverColor: $primaryColor;
+$buttonPadding: 0.75rem 1rem;
+
+$buttonBorder: none;
+$borderRadius: 0.75rem;
+$outlinedButtonBorder: 1px solid;
+
+$inputBg: rgba(34, 4, 54, 0.04);
+$inputPadding: 0.625rem 1.25rem;
+$inputHoverBorderColor: $primaryColor;
+$inputBorderRadius: 1rem;
+$inputTextColor: $primaryColor;
+$inputTextFontSize: 1rem;
+
+$scaleSM: 0.875;
+$scaleLG: 1.25;
+
+//focus
+$focusShadow: 0 0 0 0.1rem $focusOutlineColor;
+$focusOutlineColor: $primaryColor;
