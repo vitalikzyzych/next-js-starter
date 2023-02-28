@@ -1,12 +1,12 @@
 // Variables required to create a custom theme
 $primaryColor: #220436;
-$secondaryTextColor: #220436;
+$secondaryTextColor: #604a6e;
 
-$primaryLightColor: lighten($primaryColor, 20%);
-$primaryDarkColor: darken($primaryColor, 10%);
-$primaryDarkerColor: darken($primaryColor, 10%);
+$primaryLightColor: lighten($primaryColor, 10%);
+$primaryDarkColor: darken($primaryColor, 3%);
+$primaryDarkerColor: darken($primaryColor, 3%);
 $primaryTextColor: #ffffff;
-$primaryLighterColor: lighten($primaryColor, 10%);
+$primaryLighterColor: lighten($primaryColor, 5%);
 $primary500: #3B82F6;
 
 $highlightBg: $primaryColor;
@@ -86,4 +86,7 @@ which can optionally modify existing theme styles.
 // This is where you can (optionally) add your custom classes
 // ========================================================================
 @import './_custom_classes.scss';
+
+@import './overrides/_prime_extended.scss';
+
 

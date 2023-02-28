@@ -1,9 +1,9 @@
 // ## Generator Reducer Imports
-import user from './user/user.slice';
-import userStore from './user/user.store';
+import job from './job/job.slice';
+import jobStore from './job/job.store';
 
 export default {
   // ## Generator Reducers
-  user,
-  userStore,
+  job,
+  jobStore,
 };

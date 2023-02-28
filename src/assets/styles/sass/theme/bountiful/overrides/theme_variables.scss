@@ -1,12 +1,17 @@
 $bcsPrimaryTextColor: #604a6e;
 $bcsPrimaryDarkenTextColor: #220436;
 
-$buttonBg: #d6ff71;
-$buttonHoverBg: darken($buttonBg, 10%);
-$buttonTextHoverColor: $primaryColor;
-$buttonPadding: 0.75rem 1rem;
+$purple-50: rgba(34, 4, 54, .04);
+$purple-100: rgba(34, 4, 54, .08);
+$purple-200: rgba(34, 4, 54, .12);
+$purple-300: rgba(34, 4, 54, .24);
+$purple-400: rgba(34, 4, 54, .36);
+$purple-500: rgba(34, 4, 54, 0.4);
+$purple-600: rgba(34, 4, 54, .64);
+$purple-700: rgba(34, 4, 54, .72);
+$purple-800: rgba(34, 4, 54, .84);
+$purple-900: rgba(34, 4, 54, 1);
 
-$buttonBorder: none;
 $borderRadius: 0.75rem;
 $outlinedButtonBorder: 1px solid;
 
@@ -23,3 +28,11 @@ $scaleLG: 1.25;
 //focus
 $focusShadow: 0 0 0 0.1rem $focusOutlineColor;
 $focusOutlineColor: $primaryColor;
+
+:root {
+  --text-color:#{$primaryColor};
+  --text-color-secondary:#{$secondaryTextColor};
+  --primary-color:#{$primaryColor};
+  --primary-color-text:#{$primaryTextColor};
+  --font-family:#{$fontFamily};
+}

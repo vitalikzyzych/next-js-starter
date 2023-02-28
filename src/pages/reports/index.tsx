@@ -5,23 +5,23 @@ import { Column } from 'primereact/column';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'core/app/rootStore';
 
-import { usersSelector, userIdsSelector, userList, userIsLoadingSelector } from 'store/user';
+import { jobsSelector, jobIdsSelector, jobList, jobIsLoadingSelector } from 'store/job';
 
 const UsersScreen: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const ids = useSelector(userIdsSelector);
-  const isLoading = useSelector(userIsLoadingSelector);
-  const users = useSelector(usersSelector);
+  const ids = useSelector(jobIdsSelector);
+  const isLoading = useSelector(jobIsLoadingSelector);
+  const jobs = useSelector(jobsSelector);
 
   useEffect(() => {
-    dispatch(userList());
+    dispatch(jobList());
   }, []);
 
   return (
     <div className="layout-wrapper -m-2">
       <DataTable value={ids} loading={isLoading}>
-        <Column field="email" header="Email" body={(rowData) => users[rowData].email} />
+        <Column field="email" header="Email" body={(rowData) => jobs[rowData].title} />
       </DataTable>
     </div>
   );

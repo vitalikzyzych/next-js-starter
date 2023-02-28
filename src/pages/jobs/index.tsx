@@ -1,41 +1,56 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'primereact/button';
-import { InputText } from 'primereact/inputtext';
+import { DataView } from 'primereact/dataview';
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
-import { JobList } from './components';
-import jobs from './components/jobs';
-import { Status } from './types';
+import { InputText } from 'primereact/inputtext';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from 'core/app/rootStore';
+import { JobItem } from './components';
 
-const JobsScreen: React.FC = () => {
-  const [selectedStatus, setSelectedStatus] = useState<Status | string>('All Jobs');
-  const options: Status[] = [
+import { jobsSelector, jobIdsSelector, jobList, jobIsLoadingSelector } from 'store/job';
+
+export interface IStatus {
+  name: string;
+}
+
+const Jobs: React.FC = () => {
+  const [selectedStatus, setSelectedStatus] = useState<IStatus | string>('All Jobs');
+  const options: IStatus[] = [
     { name: 'Open' },
     { name: 'Pending' },
     { name: 'Draft' },
     { name: 'Archived' },
     { name: 'All Jobs' },
   ];
+  const dispatch = useDispatch<AppDispatch>();
+
+  const ids = useSelector(jobIdsSelector);
+  const isLoading = useSelector(jobIsLoadingSelector);
+  const jobs = useSelector(jobsSelector);
+
+  useEffect(() => {
+    dispatch(jobList());
+  }, []);
 
   return (
     <>
-      <div className="w-full border-bottom-2 border-gray-300">
+      <div className="w-full border-bottom-1 border-gray-300">
         <div className="layout-wrapper">
           <div className="flex justify-content-between align-items-start w-full">
             <div className="flex flex-column">
-              <p className="text-sm">High Alpha</p>
-              <p className="text-4xl">Job Posts</p>
+              <p className="text-sm text-purple-700">High Alpha</p>
+              <p className="text-4xl font-medium">Job Posts</p>
             </div>
             <Button
               label="Create Job Post"
               icon="pi pi-plus"
               iconPos="right"
-              rounded
               onClick={() => console.log('click')}
             />
           </div>
         </div>
       </div>
-      <div className="layout-wrapper -m-2">
+      <div className="layout-wrapper">
         <div className=" flex flex-column pt-2">
           <div className="flex justify-content-between align-items-center topbar-end mx-2">
             <div className="topbar-search">
@@ -59,8 +74,13 @@ const JobsScreen: React.FC = () => {
               />
             </div>
           </div>
-          <div className="mt-3">
-            <JobList jobs={jobs} />
+          <div className="grid grid-nogutter mt-3">
+            <DataView
+              value={ids}
+              loading={isLoading}
+              layout="grid"
+              itemTemplate={(data) => <JobItem id={data} jobs={jobs} />}
+            />
           </div>
         </div>
       </div>
@@ -68,4 +88,4 @@ const JobsScreen: React.FC = () => {
   );
 };
 
-export default JobsScreen;
+export default Jobs;

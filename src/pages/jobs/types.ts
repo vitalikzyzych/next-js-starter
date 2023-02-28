@@ -1,4 +1,4 @@
-export interface IJob {
+export interface IJob2 {
   accountId: number;
   title: string;
   reward: number;
